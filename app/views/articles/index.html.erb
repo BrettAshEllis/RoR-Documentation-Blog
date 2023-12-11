@@ -2,10 +2,9 @@
 
 <ul>
   <% @articles.each do |article| %>
-    # "<%" Executes the Ruby code within the brackets.
     <li>
-      <%= article.title %>
-      # "<%=" Evaluates the Ruby code within the brackets and inserts the result into the HTML document.
+      <a href="/articles/<%= article.id %>">
+        <%= article.title %></a>
     </li>
   <% end %>
 </ul>
