@@ -3,9 +3,8 @@
 <ul>
   <% @articles.each do |article| %>
     <li>
-      <a href="<%= article_path(article) %>">
-        <%= article.title %></a>
-      </a>
+      <%= link_to article.title, article %>
+      # The link_to helper method is used to create a hyperlink to another page using the first argument as plaintext for the link and the second argument as the path to the page.
     </li>
   <% end %>
 </ul>
