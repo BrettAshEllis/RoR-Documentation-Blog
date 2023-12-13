@@ -5,11 +5,19 @@
   <div>
     <%= form.label :title %><br>
     <%= form.text_field :title %>
+    <% @article.errors.full_messages_for(:title).each do |message| %>
+      # .errors is a method that returns an object that represents all the errors for the model object. The object returned by .errors has a method called full_messages_for that returns an array of error messages for the given attribute.
+      # full_messages_for is a method that returns an array of error messages for the given attribute.
+      <div><%= message %></div>
+    <% end %>
   </div>
 
   <div>
     <%= form.label :body %><br>
     <%= form.text_area :body %>
+    <% @article.errors.full_messages_for(:body).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
   </div>
 
   <div>
