@@ -8,13 +8,16 @@ class ArticlesController < ApplicationController
   end
 
   def new
+    # new is a GET request, so we don't need to whitelist any attributes.
     @article = Article.new
   end
 
   def create
+    # create is a POST request, so we need to whitelist the attributes that we want to allow to be updated.
     @article = Article.new(article_params)
     
     if @article.save
+    # create saves the model object to the database and returns a boolean indicating whether or not the save was successful. If the save was successful, the model object will have its id attribute set to the id assigned to it by the database.
       redirect_to @article
     else
       render :new, status: :unprocessable_entity
