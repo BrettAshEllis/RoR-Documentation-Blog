@@ -1,5 +1,5 @@
 class Article < ApplicationRecord
-include Visible
+  include Visible
 
   has_many :comments
 
