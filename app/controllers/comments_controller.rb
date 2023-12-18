@@ -7,6 +7,6 @@ end
 # Because of nesting, we have to get the article object from the article_id parameter for comments to keep track of which article they're attached to.
 private
   def comment_params
-    params.require(:comment).permit(:commenter, :body)
+    params.require(:comment).permit(:commenter, :body, :status)
   end
 end
