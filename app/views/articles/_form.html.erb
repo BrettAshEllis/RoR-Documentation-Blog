@@ -1,6 +1,3 @@
-# This partial view file is responsible for rendering the form to create or edit an article.
-# It uses the `form_with` helper method to generate the HTML form.
-# The `model` option is set to `article`, which specifies the object that the form is associated with.
 
 <%= form_with model: article do |form| %>
   <div>
@@ -12,14 +9,25 @@
   </div>
 
   <div>
-      <%= form.label :body %><br>
-      <%= form.text_area :body %><br>
-      <% article.errors.full_messages_for(:body).each do |message| %>
-        <div> <%= message %></div>
-      <% end %>
+    <%= form.label :body %><br>
+    <%= form.text_area :body %><br>
+    <% article.errors.full_messages_for(:body).each do |message| %>
+      <div> <%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :status %><br>
+    <%= form.select :status, Visible::VALID_STATUSES, selected: article.status || 'public' %>
   </div>
 
   <div>
     <%= form.submit %>
   </div>
+
 <% end %>
+
+# This partial view file is responsible for rendering the form to create or edit an article.
+# It uses the `form_with` helper method to generate the HTML form.
+# The `model` option is set to `article`, which specifies the object that the form is associated with.
+# The `form_with` helper method instantiates a form builder object that is used to build a form for the Article model object. The form builder object is stored in the local variable `form` and is used to build the form.
