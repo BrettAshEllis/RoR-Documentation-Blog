@@ -20,3 +20,5 @@ private
   end
 end
 # Because of nesting, we have to get the article object from the article_id parameter for comments to keep track of which article they're attached to.
+
+# Done with the rubyonrails.org getting started guide!
